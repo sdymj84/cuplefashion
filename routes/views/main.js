@@ -12,15 +12,15 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function (next) {
 
-			var q = SiteInfo.model.find({}).populate('mainImage');
+		var q = SiteInfo.model.find({}).populate('mainImage');
 
-			q.exec(function (err, result) {
-				locals.siteinfo = result;
-				next(err);
-			});
-
-
+		q.exec(function (err, result) {
+			locals.siteinfo = result;
+			next(err);
 		});
+
+
+	});
 	// Render the view
-	view.render('main', {layout: 'main'});
+	view.render('main', { layout: 'main' });
 };
