@@ -17,10 +17,17 @@ var _ = require('lodash');
 	the navigation in the header, you may wish to change this array
 	or replace it with your own templates / logic.
 */
+
+/*=== Minjun's comment ========================================
+	FRONT END NAVBAR LINKS
+	1. "label" is the navlink name
+	2. if key and locals.section are the same, navbar link shows active effect by default.hbs
+	3. href : url when click the navlink
+==============================================================*/
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
+		{ label: 'Products', key: 'products', href: '/products' },
 		{ label: 'Contact', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;

@@ -2,6 +2,8 @@ const keystone = require('keystone')
 const Types = keystone.Field.Types
 
 const Product = new keystone.List('Product', {
+  // create key automatically when creating each documents 
+  // the key property name will be "slug" and the value will be the same as title
   autokey: { path: 'slug', from: 'title', unique: true },
   map: { name: 'title' },
   defaultSort: 'title'
