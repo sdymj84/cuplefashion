@@ -17,6 +17,7 @@ Product.add({
   bulletPoint4: { type: String },
   bulletPoint5: { type: String },
   description: { type: Types.Html, wysiwyg: true, height: 300 },
+  // get images from Image model
   mainImage: { type: Types.Relationship, ref: 'Image' },
   image1: { type: Types.Relationship, ref: 'Image' },
   image2: { type: Types.Relationship, ref: 'Image' },

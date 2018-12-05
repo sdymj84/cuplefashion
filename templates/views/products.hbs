@@ -4,11 +4,20 @@
 
 <div class="container">
   <!-- if products -->
+  {{!-- this 'products' refers to data set
+  which was queried in products.js route file.
+  so you can use Product database properties inside
+  '#each products' block --}}
   {{#if products}}
   {{#each products}}
-  <h2>{{title}}</h2>
+  <div class="product-image">
+    <img src="{{cloudinaryUrl mainImage width='300' height='300'}}">
+  </div>
+  <h3>{{title}}</h3>
+
   {{/each}}
   {{/if}}
+
   {{!-- <div class="row gallery-images">
     {{#if heroImage}}
     <div class="col-sm-4 col-md-4 gallery-image">
