@@ -2,7 +2,8 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -10,22 +11,34 @@
       </button>
 
 
-  <!--   <img style="max-width:55px; margin-top: -7px;"
+      <!--   <img style="max-width:55px; margin-top: -7px;"
          src="/images/logo.png"> -->
 
       <a class="navbar-brand" rel="home" href="#"> Cuple
-    </a>
+      </a>
     </div>
 
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        <ul class="nav navbar-nav navbar-right ">
-          {{#ifeq section 'projects'}}
-          <li><a href="/">ABCDE</a></li>
-          <li><a href="/">ABCDE</a></li>
-          <li><a href="/">ABCDE</a></li>
-          <li><a href="/">ABCDE</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        {{!--
+        below code meaning : if (locals.section === 'projects')
+        which means, if user access main.js route
+        which means, if user enters home page
+
+        // QUESTION:
+        .. but why nav bar changes based on which page user enters?
+        maybe you're planning to change to whether user log in or not?
+        --}}
+        {{#ifeq section 'projects'}}
+        {{!--
+        // FIXME: what the heck is the name 'projects'??
+        please use readable names that each others can easily understand
+        --}}
+        <li><a href="/">PRODUCTS</a></li>
+        <li><a href="/">CONTACT</a></li>
+        <li><a href="/">SIGN IN</a></li>
 
         {{else}}
 
@@ -34,7 +47,7 @@
         <li><a href="/">ABCDE</a></li>
         {{/ifeq}}
         <li><a href="/">ABCDE</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

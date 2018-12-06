@@ -9,6 +9,10 @@ exports = module.exports = function (req, res) {
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
 	locals.section = 'projects';
+	/* 
+		// FIXME: what the heck is the name 'projects'??
+		please use readable names that each others can easily understand
+	*/
 
 	view.on('init', function (next) {
 
