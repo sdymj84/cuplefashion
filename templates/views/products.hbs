@@ -20,13 +20,15 @@
     <div>
       <div class="uk-card uk-card-default uk-card-hover 
         uk-animation-fade product-card">
-        <div class="uk-card-media-top">
-          <img src="{{cloudinaryUrl this}}" alt="thumbnail image of product">
-        </div>
-        <div class="uk-card-body">
-          <p class="uk-card-title">{{product.title}}</p>
-          <p class="product-price">$ {{product.price}}</p>
-        </div>
+        <a href="/product/{{product.slug}}">
+          <div class="uk-card-media-top">
+            <img src="{{cloudinaryUrl this}}" alt="thumbnail image of product">
+          </div>
+          <div class="uk-card-body">
+            <p class="uk-card-title">{{product.title}}</p>
+            <p class="product-price">$ {{product.price}}</p>
+          </div>
+        </a>
       </div>
     </div>
     {{/if}}

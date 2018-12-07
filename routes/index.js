@@ -37,7 +37,14 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.main);
 	app.get('/login', routes.views.index);
 	app.get('/products', routes.views.products);
-	// app.get('/product/:productId', routes.views.product) // set route for product detail page
+
+	/* 
+		Set route for product detail page
+		when clicking product from products page, 
+		it add product slug to params on url 
+		and redirect to product/slug page
+	*/
+	app.get('/product/:productSlug', routes.views.product)
 	app.all('/contact', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
