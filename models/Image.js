@@ -10,7 +10,7 @@ var Image = new keystone.List('Image', {
 
 Image.add({
     title: { type: String, required: true },
-    image: { type: Types.CloudinaryImage },
+    images: { type: Types.CloudinaryImages }, // store array of images
 });
 
 Image.defaultColumns = 'title, slug'
