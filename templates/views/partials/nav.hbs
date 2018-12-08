@@ -14,7 +14,7 @@
       <!--   <img style="max-width:55px; margin-top: -7px;"
          src="/images/logo.png"> -->
 
-      <a class="navbar-brand" rel="home" href="#"> Cuple
+      <a class="navbar-brand" rel="home" href="/"> Cuple
       </a>
     </div>
 
@@ -27,27 +27,19 @@
         which means, if user access main.js route
         which means, if user enters home page
 
-        // QUESTION:
+        // :
         .. but why nav bar changes based on which page user enters?
         maybe you're planning to change to whether user log in or not?
         --}}
-        {{#ifeq section 'projects'}}
         {{!--
-        // FIXME: what the heck is the name 'projects'??
+        // :
         please use readable names that each others can easily understand
         --}}
         <li><a href="/">PRODUCTS</a></li>
-        <li><a href="/">CONTACT</a></li>
-        <li><a href="/">SIGN IN</a></li>
-
-        {{else}}
-
-        <li><a href="/">ABCDE</a></li>
-        <li><a href="/">ABCDE</a></li>
-        <li><a href="/">ABCDE</a></li>
-        {{/ifeq}}
-        <li><a href="/">ABCDE</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+        <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav>s
