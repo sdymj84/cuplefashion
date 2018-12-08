@@ -13,7 +13,7 @@ exports = module.exports = (req, res) => {
   // so it can be used in template/view file
   // locals.products contains data set queried by below line
   view.query('products', keystone.list('Product')
-    .model.find().populate('mainImage'))
+    .model.find().populate('images'))
 
   // Load products
   view.render('products', { layout: 'main' })
