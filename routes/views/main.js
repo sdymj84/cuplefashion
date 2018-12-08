@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'projects';
 	/* 
-		// FIXME: what the heck is the name 'projects'??
+		 what the heck is the name 'projects'??
 		please use readable names that each others can easily understand
 	*/
 

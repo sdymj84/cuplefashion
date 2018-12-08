@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
+var SiteInfo = keystone.list('SiteInfo');
 
 exports = module.exports = function (req, res) {
 
@@ -13,6 +14,18 @@ exports = module.exports = function (req, res) {
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
 
+	// populate jumbotron image
+	view.on('init', function(next)
+	{		
+		var q = SiteInfo.model.find({}).populate('mainImage');
+
+		q.exec(function (err, result)
+		{
+			locals.siteinfo = result;
+			next(err);
+		});
+
+	});
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', { action: 'contact' }, function (next) {
 
@@ -33,5 +46,5 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('contact');
+	view.render('contact', {layout:'main'});
 };
