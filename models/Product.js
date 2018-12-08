@@ -18,14 +18,7 @@ Product.add({
   bulletPoint5: { type: String },
   description: { type: Types.Html, wysiwyg: true, height: 300 },
   // get images from Image model
-  mainImage: { type: Types.Relationship, ref: 'Image' },
-  image1: { type: Types.Relationship, ref: 'Image' },
-  image2: { type: Types.Relationship, ref: 'Image' },
-  image3: { type: Types.Relationship, ref: 'Image' },
-  image4: { type: Types.Relationship, ref: 'Image' },
-  image5: { type: Types.Relationship, ref: 'Image' },
-  image6: { type: Types.Relationship, ref: 'Image' },
-  image7: { type: Types.Relationship, ref: 'Image' },
+  images: { type: Types.Relationship, ref: 'Image' },
   price: { type: Number, min: 0 },
   qty: { type: Number, min: 0 },
   createdAt: { type: Date, default: Date.now }

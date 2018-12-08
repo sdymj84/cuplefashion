@@ -1,11 +1,13 @@
 <div class="jumbotron portfolio-hero text-center" style="
 background: url(
 {{#each siteinfo}}
-  {{#if @first}}
-    {{#if mainImage}}
-      {{cloudinaryUrl mainImage.image}}
+    {{#if mainImage.images}}
+      {{#each mainImage.images}}
+      {{#if @first}}
+        {{cloudinaryUrl this}}
+      {{/if}}
+      {{/each}}
     {{/if}}
-  {{/if}}
 {{/each}}
 ) no-repeat center center;
 background-size: cover;
