@@ -24,7 +24,9 @@
 - Developer1 (Minjun) :
   1. Create model/route/view pages for Product
   2. Documenting README
-  3. 
+  3. Best sellers slider, Instagram section
+  4. Product detail page
+  5. 
 
 - Developer2 (Deokguan) :
   1. Create model/route/view pages for Image/SiteInfo
