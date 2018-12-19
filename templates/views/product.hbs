@@ -9,7 +9,7 @@ Create product page
 <div class="container uk-margin-large-top">
   <div uk-grid>
     <div uk-grid class="uk-grid-small uk-width-2-3@s uk-width-1-2@m">
-      <div class="uk-width-1-6@s" uk-lightbox="animation: scale">
+      <div id="thumbnails" class="uk-width-1-6@s">
         {{#each product.images.images}}
         <div class="uk-margin-small">
           <a class="uk-inline" href="{{cloudinaryUrl this}}" data-caption="Caption 1">
@@ -18,7 +18,7 @@ Create product page
         </div>
         {{/each}}
       </div>
-      <div class="uk-width-5-6@s" uk-lightbox="animation: scale">
+      <div id="main-image" class="uk-width-5-6@s" uk-lightbox="animation: scale">
         {{#each product.images.images}}
         {{#if @first}}
         <div>
