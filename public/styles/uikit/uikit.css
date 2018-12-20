@@ -1729,7 +1729,7 @@ select.uk-form-width-xsmall {
  ========================================================================== */
 .uk-form-label {
   color: #333;
-  font-size: 0.875rem;
+  font-size: 1em;
 }
 /* Layout
  ========================================================================== */
@@ -1754,12 +1754,12 @@ select.uk-form-width-xsmall {
 /* Tablet landscape and bigger */
 @media (min-width: 960px) {
   .uk-form-horizontal .uk-form-label {
-    width: 200px;
+    width: 50px;
     margin-top: 7px;
     float: left;
   }
   .uk-form-horizontal .uk-form-controls {
-    margin-left: 215px;
+    margin-left: 115px;
   }
   /* Better vertical alignment if controls are checkboxes and radio buttons with text */
   .uk-form-horizontal .uk-form-controls-text {
