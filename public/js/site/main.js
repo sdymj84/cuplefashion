@@ -8,3 +8,14 @@ $("#thumbnails img").on("click", function (e) {
 })
 
 
+/*=================================================================
+  Product detail page - Selected color preview 
+==================================================================*/
+const changPreviewColor = () => {
+  let selectedColor = $(".product-color-select option:selected").val()
+  $(".product-color-preview").css("background-color", selectedColor)
+}
+$(".product-color-select").change(function () {
+  changPreviewColor()
+})
+changPreviewColor()

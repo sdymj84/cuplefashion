@@ -45,18 +45,20 @@
 
         <div class="uk-margin">
           <div uk-form-custom="target: > * > span:first-child">
-            <select>
+            <select class="product-color-select">
               <option value="">Please select color...</option>
-              <option value="1">Black</option>
-              <option value="2">Blue</option>
-              <option value="3">Wine</option>
+              <option value="black">Black</option>
+              <option value="navy">Navy</option>
+              <option value="darkred">Wine</option>
             </select>
             <button class="uk-button uk-button-default" type="button" tabindex="-1">
               <span></span>
               <span uk-icon="icon: chevron-down"></span>
             </button>
           </div>
+          <div class="product-color-preview"></div>
         </div>
+
         {{!-- // TODO: for Minjun - Create qty and buy button --}}
         <div class="uk-margin">
           <label class="uk-form-label" for="form-horizontal-select">Qty</label>
