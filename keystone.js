@@ -57,7 +57,7 @@ keystone.set('nav', {
 	enquiries: 'enquiries',
 	images: 'images',
 	products: 'products',
-	siteinfo: 'site-infos',
+	siteinfos:'site-infos'
 });
 
 // Start Keystone to connect to your database and initialise the web server
