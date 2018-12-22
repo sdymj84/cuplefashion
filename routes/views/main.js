@@ -8,12 +8,8 @@ exports = module.exports = function (req, res) {
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'projects';
-	/* 
-		 what the heck is the name 'projects'??
-		please use readable names that each others can easily understand
-	*/
-
+	locals.section = 'home';
+	
 	view.on('init', function (next) {
 
 		var q = SiteInfo.model.find({}).populate('mainImage');

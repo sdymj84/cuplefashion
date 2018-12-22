@@ -37,6 +37,7 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.main);
 	app.get('/login', routes.views.index);
 	app.get('/products', routes.views.products);
+	app.get('/test', routes.views.login);
 
 	/* 
 		Set route for product detail page
