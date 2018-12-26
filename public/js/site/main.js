@@ -19,3 +19,12 @@ $(".product-color-select").change(function () {
   changPreviewColor()
 })
 changPreviewColor()
+
+
+/*=================================================================
+  Products page - Sidebar
+==================================================================*/
+$("#menu-toggle").on("click", function (e) {
+  e.preventDefault()
+  $("#wrapper").toggleClass("toggled")
+})
