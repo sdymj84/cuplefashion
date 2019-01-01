@@ -19,3 +19,41 @@ $(".product-color-select").change(function () {
   changPreviewColor()
 })
 changPreviewColor()
+
+
+/*=================================================================
+  Products page - Sidebar
+==================================================================*/
+$("#menu-toggle").on("click", function (e) {
+  e.preventDefault()
+  $("#wrapper").toggleClass("toggled")
+})
+
+
+// TODO: modify this 
+/*=================================================================
+  Login
+==================================================================*/
+// I stored one id/pw on my firebase auth account
+// - test@test.com / test123
+
+$("#login").on("click", function (e) {
+  const auth = firebase.auth()
+
+  // Get values from email/password input
+  const email = $("#inputEmail").val()
+  const password = $("#inputPassword").val()
+
+  // prevent submitting form
+  e.preventDefault()
+
+  // firebase auth method referred from - 
+  // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithEmailAndPassword
+  auth.signInWithEmailAndPassword(email, password)
+    .then(function (user) {
+      console.log(user)
+      alert("logged in successfully")
+    }).catch(function (error) {
+      alert(error.message)
+    })
+})
