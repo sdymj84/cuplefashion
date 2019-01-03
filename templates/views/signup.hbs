@@ -1,0 +1,123 @@
+
+<body>    
+<style type="text/css">
+.form-control {
+font-size: 13px;
+height: 50px;
+}
+button.btn-signup {
+    height:50px;
+    color: #FFFFFF;
+    background-color: #000000;
+    border-color: #000000;
+    font-weight:normal;
+    font-size: 15px;
+}
+
+</style>
+    <script>
+        function checkInput()
+        {
+            if(signUpForm.firstName.value=="")
+            {
+                alert("Please enter your first name.");
+                return false;
+            }
+            else if(signUpForm.lastName.value=="")
+            {
+                alert("Please enter your last name.");
+                return false;
+            }
+            else if(signUpForm.emailAddress.value=="")
+            {
+                alert("Please enter your email address.");
+                return false;
+            }
+            else if(signUpForm.password.value=="")
+            {
+                alert("Please enter the new password for your new account.");
+                return false;
+            }
+            else if(signUpForm.password.value.length < 8)
+            {
+                alert("Please enter the new password of at least 8 characters.");
+                return false;
+            }
+            else if(signUpForm.password_re.value=="")
+            {
+                alert("Please enter the confirm password for your new account.");
+                return false;
+            }
+            else if(signUpForm.password.value != signUpForm.password_re.value)
+            {
+                alert("The confirm passwords do not match. Please input again.");
+                signUpForm.password.value="";
+                signUpForm.password_re.value="";
+                return false;
+            } 
+        
+            else
+            {
+                return true;
+            }
+        }
+
+        function signUp() {
+            location.href="/test"; //login page
+        }
+    </script>
+
+	<br><br>
+	<h1 style="text-align: center; font-size: 30px; font-weight: normal;">create account</h1>
+	<br><br> 
+        <div class="row">
+        <div class="container">
+        <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
+              
+
+        
+
+
+            <form enctype="multipart/form-data" name="signUpForm" action='' method='post' style="text-align: center;" onsubmit="return checkInput()">
+           
+              <div class="form-group"> 
+                <center>
+                <input type="text" name="firstName" class="form-control" id="firstName" size="4" maxlength="15" placeholder="first Name">
+                </center>
+              </div>
+              <div class="form-group"> 
+                <center>
+                <input type="text" name="lastName" class="form-control" id="lastName" size="4" maxlength="15" placeholder="last Name">
+                </center>
+              </div>
+              
+              <div class="form-group"> 
+                <center> 
+                	<input type="text" class="form-control" name="emailAddress" id="emailAddress" maxlength="45" placeholder="email address">
+                </center>
+              </div>
+
+
+              <div class="form-group"> 
+                <center><input type="password" class="form-control" name="password" id="password" maxlength="15" placeholder="password"></center>
+              </div> 
+              <div class="form-group"> 
+                <center><input type="password" class="form-control" name="password_re" id="password_re" maxlength="15" placeholder="confirm password"></center>
+              </div> 
+              <br>
+
+              <button type="submit" class="submit btn btn-signup btn-block" id="signup">create account</button>
+            </form>
+ 			<br>
+            <form>
+              <p style="text-align: center; color:gray; font-size:13px;">by signing up, you accept the <a href="/">terms of use</a> and <a href="/">privacy policy</a> </p>
+              <br>
+                <p style="font-size:13px; text-align: center;">already on account?
+                <button type="button" onClick="signUp()" class="btn btn-link" id="join" target="self" style="color: #000000;">log in</button></p>
+            </form>
+        </div>
+        </div>
+        </div>
+</body>
+</html>
+
