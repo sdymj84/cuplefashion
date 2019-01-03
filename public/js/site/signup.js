@@ -45,5 +45,5 @@ function checkInput()
         }
 
         function signUp() {
-            location.href="/test"; //login page
+            location.href="/login"; //login page
         }
