@@ -30,7 +30,6 @@ $("#menu-toggle").on("click", function (e) {
 })
 
 
-// TODO: modify this 
 /*=================================================================
   Login
 ==================================================================*/
@@ -60,37 +59,37 @@ $("#login").on("click", function (e) {
 
 // I stored one id/pw on my firebase auth account in main.hbs
 $("#signup").on("click", function (e) {
-// Get values from email/password input
-  const name = $("firstName").val()
+  // Get values from email/password input
+  const name = $("#firstName").val()
   const email = $("#emailAddress").val()
   const password = $("#password").val()
   // prevent submitting form
   e.preventDefault()
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((result)=>{
-    console.log(result);
+    .then((result) => {
+      console.log(result);
 
-    var user = firebase.auth().currentUser;
+      var user = firebase.auth().currentUser;
 
-user.updateProfile({
-displayName: name,
-photoURL: ""
-}).then(() => {
-console.log("login success");
-// Update successful.
-}).catch((error)=> {
-console.log(error.message);
-// An error happened.
-});
+      user.updateProfile({
+        displayName: name,
+        photoURL: ""
+      }).then(() => {
+        console.log("login success");
+        // Update successful.
+      }).catch((error) => {
+        console.log(error.message);
+        // An error happened.
+      });
 
-  })
-  .catch((error) => {
+    })
+    .catch((error) => {
 
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-    console.log(errorMessage);
-  });
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+      console.log(errorMessage);
+    });
 })
