@@ -1,0 +1,55 @@
+
+	<br><br>
+	<h1 style="text-align: center; font-size: 30px; font-weight: normal;">create account</h1>
+	<br><br> 
+        <div class="row">
+        <div class="container">
+        <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
+              
+
+        
+
+
+            <form enctype="multipart/form-data" name="signUpForm" action='' method='post' style="text-align: center;" onsubmit="return checkInput()">
+           
+              <div class="form-group"> 
+                <center>
+                <input type="text" name="firstName" class="form-control" id="firstName" size="4" maxlength="15" placeholder="first Name">
+                </center>
+              </div>
+              <div class="form-group"> 
+                <center>
+                <input type="text" name="lastName" class="form-control" id="lastName" size="4" maxlength="15" placeholder="last Name">
+                </center>
+              </div>
+              
+              <div class="form-group"> 
+                <center> 
+                	<input type="text" class="form-control" name="emailAddress" id="emailAddress" maxlength="45" placeholder="email address">
+                </center>
+              </div>
+
+
+              <div class="form-group"> 
+                <center><input type="password" class="form-control" name="password" id="password" maxlength="15" placeholder="password"></center>
+              </div> 
+              <div class="form-group"> 
+                <center><input type="password" class="form-control" name="password_re" id="password_re" maxlength="15" placeholder="confirm password"></center>
+              </div> 
+              <br>
+
+              <button type="submit" class="submit btn btn-signup btn-block" id="signup">create account</button>
+            </form>
+ 			<br>
+            <form>
+              <p style="text-align: center; color:gray; font-size:13px;">by signing up, you accept the <a href="/">terms of use</a> and <a href="/">privacy policy</a> </p>
+              <br>
+                <p style="font-size:13px; text-align: center;">already on account?
+                <button type="button" onClick="signUp()" class="btn btn-link" id="join" target="self" style="color: #000000;">log in</button></p>
+            </form>
+        </div>
+        </div>
+        </div>
+</body>
+</html>
+
