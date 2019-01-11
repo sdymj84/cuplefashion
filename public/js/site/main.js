@@ -36,7 +36,7 @@ $("#menu-toggle").on("click", function (e) {
 ==================================================================*/
 // I stored one id/pw on my firebase auth account
 // - test@test.com / test123
-
+/*
 $("#login").on("click", function (e) {
   const auth = firebase.auth()
 
@@ -53,11 +53,13 @@ $("#login").on("click", function (e) {
     .then(function (user) {
       console.log(user)
       alert("logged in successfully")
+      window.location = '/'
+      $("#hi").hide()
     }).catch(function (error) {
       alert(error.message)
     })
 })
-
+*/
 // I stored one id/pw on my firebase auth account in main.hbs
 $("#signup").on("click", function (e) {
 // Get values from email/password input
@@ -93,4 +95,16 @@ console.log(error.message);
     // ...
     console.log(errorMessage);
   });
+  $("#logout").on("click", function (e) {
+
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    console.log("login success");
+    alert("signout");
+  }).catch(function(error) {
+    console.log("fail");
+
+    // An error happened.
+  });
+});
 })
