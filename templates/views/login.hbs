@@ -10,7 +10,7 @@
     --}}
 
 
-    <form class="form-horizontal" action='/login' method='post' name="loginForm" onsubmit="return checkInput()">
+    <form class="form-horizontal" action='/login' method='post' name="loginForm" onsubmit="return checklogininput()">
         <input type="hidden" name="token" />
         <div class="form-group">
             <label class="label_font control-label hidden-lg hidden-md col-lg-2">email address</label>
@@ -30,30 +30,31 @@
             <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
                 <center>
                     <button type="submit" class="btn btn-signin btn-block" id="login">sign in</button>
-                    <hr style="width: 100%;">
-                    <button type="button" class="btn btn-fbsignin btn-block" onclick="facebookLogin()"><i class="fa fa-facebook fa-fw"></i>sign
-                        in with Facebook</button>
-                </center>
-            </div>
-        </div>
-
     </form>
 
+    <hr style="width: 100%;">
 
+    <button type="button" class="btn btn-fbsignin btn-block" onclick="facebookLogin()"><i class="fa fa-facebook fa-fw"></i>sign
+        in with Facebook</button>
 
-    <br><br><br>
+    <button type="submit" class="btn btn-signin btn-block" id="logout">out</button>
+    </center>
+</div>
+</div>
 
-    <!-- Sign up form -->
-    <div class="signUp" style="text-align: center;">
-        <label class="label_font">don't have an account?&nbsp;&nbsp;</label>
-        <button type="button" onClick="signUp()" class="btn" id="join" target="self" style="color: #e69f66; background: none;">sign
-            up</button>
-    </div>
-    <!-- Forgot Password -->
-    <div class="forgotPassword" style="text-align: center;">
-        <button type="button" onClick="forgotPassword()" class="btn btn-forgot" id="forgotPassword" target="self" style="color: #e69f66; background: none;">forgot
-            your password?</button>
-    </div>
-    <br><br>
+<br><br><br>
+
+<!-- Sign up form -->
+<div class="signUp" style="text-align: center;">
+    <label class="label_font">don't have an account?&nbsp;&nbsp;</label>
+    <button type="button" onClick="signUp()" class="btn" id="join" target="self" style="color: #e69f66; background: none;">sign
+        up</button>
+</div>
+<!-- Forgot Password -->
+<div class="forgotPassword" style="text-align: center;">
+    <button type="button" onClick="forgotPassword()" class="btn btn-forgot" id="forgotPassword" target="self" style="color: #e69f66; background: none;">forgot
+        your password?</button>
+</div>
+<br><br>
 
 </div>

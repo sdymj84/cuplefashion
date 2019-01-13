@@ -35,28 +35,30 @@ $("#menu-toggle").on("click", function (e) {
 ==================================================================*/
 // I stored one id/pw on my firebase auth account
 // - test@test.com / test123
+/*
+$("#login").on("click", function (e) {
+  const auth = firebase.auth()
 
-// $("#login").on("click", function (e) {
-//   const auth = firebase.auth()
+  // Get values from email/password input
+  const email = $("#inputEmail").val()
+  const password = $("#inputPassword").val()
 
-//   // Get values from email/password input
-//   const email = $("#inputEmail").val()
-//   const password = $("#inputPassword").val()
+  // prevent submitting form
+  e.preventDefault()
 
-//   // prevent submitting form
-//   // e.preventDefault()
-
-//   // firebase auth method referred from - 
-//   // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithEmailAndPassword
-//   // auth.signInWithEmailAndPassword(email, password)
-//   //   .then(function (user) {
-//   //     console.log(user)
-//   //     alert("logged in successfully")
-//   //   }).catch(function (error) {
-//   //     alert(error.message)
-//   //   })
-// })
-
+  // firebase auth method referred from - 
+  // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithEmailAndPassword
+  auth.signInWithEmailAndPassword(email, password)
+    .then(function (user) {
+      console.log(user)
+      alert("logged in successfully")
+      window.location = '/'
+      $("#hi").hide()
+    }).catch(function (error) {
+      alert(error.message)
+    })
+})
+*/
 // I stored one id/pw on my firebase auth account in main.hbs
 $("#signup").on("click", function (e) {
   // Get values from email/password input
@@ -92,4 +94,16 @@ $("#signup").on("click", function (e) {
       // ...
       console.log(errorMessage);
     });
+  $("#logout").on("click", function (e) {
+
+    firebase.auth().signOut().then(function () {
+      // Sign-out successful.
+      console.log("login success");
+      alert("signout");
+    }).catch(function (error) {
+      console.log("fail");
+
+      // An error happened.
+    });
+  });
 })

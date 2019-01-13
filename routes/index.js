@@ -37,9 +37,7 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.main);
 	app.get('/adminLogin', routes.views.index);
 	app.get('/products', routes.views.products);
-
-	// TODO: change auth system to server
-	app.get('/login', routes.views.login);
+	app.use('/login', routes.views.login);
 	app.get('/signup', routes.views.signup);
 
 	/* 
