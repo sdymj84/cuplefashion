@@ -9,6 +9,16 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'login';
 
+	view.on('get', function (next) {
+		console.log('get')
+		next()
+	})
+
+	view.on('post', function (next) {
+		console.log('post')
+		next()
+	})
+
 	// Render the view
-	view.render('login',{ layout: 'main' });
+	view.render('login', { layout: 'main' });
 };

@@ -8,9 +8,9 @@
     1. Action required in form when user select sign in button.
 
     --}}
-   
 
-    <form class="form-horizontal" action='' method='post' name="loginForm" onsubmit="return checkInput()">
+
+    <form class="form-horizontal" action='/login' method='post' name="loginForm" onsubmit="return checkInput()">
         <input type="hidden" name="token" />
         <div class="form-group">
             <label class="label_font control-label hidden-lg hidden-md col-lg-2">email address</label>
@@ -54,6 +54,6 @@
         <button type="button" onClick="forgotPassword()" class="btn btn-forgot" id="forgotPassword" target="self" style="color: #e69f66; background: none;">forgot
             your password?</button>
     </div>
-    <br><br> 
+    <br><br>
 
 </div>
