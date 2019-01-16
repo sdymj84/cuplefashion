@@ -24,9 +24,11 @@
 - Developer1 (Minjun) :
   1. Create model/route/view pages for Product
   2. Documenting README
-  3. Best sellers slider, Instagram section
-  4. Product detail page
-  5. 
+  3. Home page - Best sellers slider, Instagram section
+  4. Products page - sidebar, products card
+  5. Product detail page
+  6. Login system with Firebase Auth (Co-work)
+  7. 
 
 - Developer2 (Deokguan) :
   1. Create model/route/view pages for Image/SiteInfo

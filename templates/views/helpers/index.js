@@ -95,7 +95,7 @@ module.exports = function () {
 		var suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '';
 		var output = '';
 
-		function createTagList (tags) {
+		function createTagList(tags) {
 			var tagNames = _.map(tags, 'name');
 
 			if (autolink) {
@@ -325,6 +325,10 @@ module.exports = function () {
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
 	};
+
+	_helpers.log = function (text) {
+		console.log(text)
+	}
 
 	return _helpers;
 };

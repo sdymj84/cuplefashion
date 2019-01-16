@@ -94,16 +94,4 @@ $("#signup").on("click", function (e) {
       // ...
       console.log(errorMessage);
     });
-  $("#logout").on("click", function (e) {
-
-    firebase.auth().signOut().then(function () {
-      // Sign-out successful.
-      console.log("login success");
-      alert("signout");
-    }).catch(function (error) {
-      console.log("fail");
-
-      // An error happened.
-    });
-  });
 })

@@ -9,7 +9,7 @@ exports = module.exports = function (req, res) {
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
 	locals.section = 'home';
-	
+
 	view.on('init', function (next) {
 
 		var q = SiteInfo.model.find({}).populate('mainImage');
@@ -24,20 +24,18 @@ exports = module.exports = function (req, res) {
     
 		1. hide login and signup from nav, once user login.
        */
-	
 
-	firebase.auth().onAuthStateChanged(function(user) {
-		if(user)
-		{
-			console.log("login status");
 
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+			console.log("Welcome customer! you're currently logged in");
+			locals.user = user
 		}
-		else{
-			console.log("fail");
+		else {
+			console.log("You're not logged in");
 		}
 	});
 
-		
 	// Render the view
 	view.render('main', { layout: 'main' });
 };

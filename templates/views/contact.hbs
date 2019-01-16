@@ -1,4 +1,4 @@
-  {{>jumbo}}
+{{>jumbo}}
 
 <div class="container ">
 	<h1>Contact Cuple</h1>
@@ -13,7 +13,7 @@
 				<input type="hidden" name="action" value="contact">
 				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
 					<label>Name</label>
-					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+					<input type="text" name="name.full" class="form-control" value="{{formData.[name.full]}}">
 				</div>
 				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
 					<label>Email</label>
@@ -26,7 +26,7 @@
 				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
 					<label>What are you contacting us about yo?</label>
 					<select name="enquiryType" class="form-control">
-						<option value="">(select one)</option> 
+						<option value="">(select one)</option>
 						{{#each enquiryTypes}}
 						<option value="{{value}}">{{label}}</option>
 						{{/each}}
