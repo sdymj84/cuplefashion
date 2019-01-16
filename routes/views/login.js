@@ -25,15 +25,14 @@ exports = module.exports = function (req, res) {
         res.redirect('/')
       }).catch(function (error) {
         console.log(error.message)
+        /* TODO (Minjun) - login error message
+          when login error, show error message on client
+          (flash message? alert? or message in div?)
+        */
+        req.flash('warning', error.message)
         next()
       })
 
-    // TODO: for Minjun - change navbar menu when logged in
-    /* 
-      1. nav.hbs : When showing navbar, check if user is not null
-        - in order to do this, user info should be sent to client from server
-        - which means, routes/main.js -> templates/main.js -> templates/nav.hbs
-    */
   });
 
   view.render('login', { layout: 'main' });

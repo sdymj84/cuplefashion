@@ -95,3 +95,11 @@ $("#signup").on("click", function (e) {
       console.log(errorMessage);
     });
 })
+
+/*=================================================================
+  Login form flash message removal when focused on input
+==================================================================*/
+$("input").on("click", function () {
+  $(".flash-message").hide()
+})
+

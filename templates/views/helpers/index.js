@@ -290,6 +290,7 @@ module.exports = function () {
 
 	_helpers.flashMessages = function (messages) {
 		var output = '';
+		console.log("inside helper : " + messages)
 		for (var i = 0; i < messages.length; i++) {
 
 			if (messages[i].title) {
@@ -308,6 +309,7 @@ module.exports = function () {
 				output += '</ul>';
 			}
 		}
+		console.log("inside helper output : " + output)
 		return new hbs.SafeString(output);
 	};
 

@@ -1,7 +1,3 @@
-function checklogininput()
-{
-    
-    
-        return true;
-    
+function checklogininput() {
+  return true;
 }

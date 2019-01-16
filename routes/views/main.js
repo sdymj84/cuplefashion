@@ -20,12 +20,6 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	/* TODO:
-    
-		1. hide login and signup from nav, once user login.
-       */
-
-
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			console.log("Welcome customer! you're currently logged in");
