@@ -27,7 +27,7 @@
   3. Home page - Best sellers slider, Instagram section
   4. Products page - sidebar, products card
   5. Product detail page
-  6. Login system with Firebase Auth (Co-work)
+  6. Login logic with Firebase Auth (Co-work)
   7. 
 
 - Developer2 (Deokguan) :
@@ -42,4 +42,11 @@
   - Main : navbar, intro image, best seller, new, instagram, footer ...
   - Products : show all products, use filters
   - Recommendation : choose your ear type and system will recommend most fit earrings
-### 2. 
+### 2. Front End
+- Create static pages
+  - main page with navbar, footer
+  - products, product detail pages
+  - sign in, sign up pages
+### 3. Back End
+- Add login logic
+  - Setup Firebase Auth and add logic in each routes
