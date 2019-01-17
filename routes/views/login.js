@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
   locals.section = 'login';
 
   view.on('post', function (next) {
-    console.log('post')
+    console.log('Login post function executed')
     const email = req.body.inputEmail;
     const password = req.body.inputPassword;
 
@@ -25,11 +25,7 @@ exports = module.exports = function (req, res) {
         res.redirect('/')
       }).catch(function (error) {
         console.log(error.message)
-        /* TODO (Minjun) - login error message
-          when login error, show error message on client
-          (flash message? alert? or message in div?)
-        */
-        req.flash('warning', error.message)
+        req.flash('warning', error.message) // send message to client
         next()
       })
 
