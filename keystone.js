@@ -6,6 +6,7 @@ require('dotenv').config();
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
 var firebase = require('firebase');
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -79,10 +80,9 @@ var config = {
 	databaseURL: "https://cuplefashion-c41cf.firebaseio.com",
 	projectId: "cuplefashion-c41cf",
 	storageBucket: "cuplefashion-c41cf.appspot.com",
-	messagingSenderId: "646752289112"
+	messagingSenderId: "646752289112",
 };
 
 firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true })
 
 keystone.start();

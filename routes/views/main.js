@@ -1,6 +1,8 @@
 var keystone = require('keystone');
 var SiteInfo = keystone.list('SiteInfo');
 var firebase = require('firebase');
+var admin = require("firebase-admin");
+var db = admin.firestore();
 
 exports = module.exports = function (req, res) {
 
@@ -25,12 +27,30 @@ exports = module.exports = function (req, res) {
 		if (user) {
 			console.log("[routes/main.js] Welcome customer! you're currently logged in");
 			locals.user = user
+			const uid = user.uid
+			const docRef = db.collection('users').doc(uid)
+			docRef.get().then(doc => {
+				if (doc.exists) {
+					locals.displayName = doc.data()
+					// Render the view
+					view.render('main', { layout: 'main' });
+				} else {
+					console.log("No such document!")
+					// Render the view
+					view.render('main', { layout: 'main' });
+				}
+			}).catch(err => {
+				console.log("Error getting document", err)
+				// Render the view
+				view.render('main', { layout: 'main' });
+			})
 		}
 		else {
 			console.log("[routes/main.js] You're not logged in");
+			// Render the view
+			view.render('main', { layout: 'main' });
 		}
 	});
 
-	// Render the view
-	view.render('main', { layout: 'main' });
+
 };

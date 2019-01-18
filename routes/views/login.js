@@ -2,10 +2,13 @@ var keystone = require('keystone');
 var firebase = require('firebase');
 var admin = require("firebase-admin");
 
-var serviceAccount = require("../../cuplefashion-c41cf-firebase-adminsdk-ig05s-4054adf3f9.json");
+// Key file for Firestore access which downloaded from Firebase console
+var serviceAccount = require("../../cuplefashion-c41cf-firebase-adminsdk-ig05s-e297cded19.json");
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
+admin.firestore().settings({ timestampsInSnapshots: true })
 var db = admin.firestore();
 
 
@@ -18,6 +21,10 @@ exports = module.exports = function (req, res) {
   // item in the header navigation.
   locals.section = 'login';
 
+  view.on('init', function (next) {
+    next()
+  })
+
   view.on('post', function (next) {
     console.log('[routes/login.js] Login post function executed')
     const email = req.body.inputEmail;
@@ -25,7 +32,6 @@ exports = module.exports = function (req, res) {
 
     // firebase auth method referred from - 
     // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithEmailAndPassword
-
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (user) {
         const uid = user.user.uid
@@ -34,8 +40,8 @@ exports = module.exports = function (req, res) {
         const docRef = db.collection('users').doc(uid)
         docRef.get().then(doc => {
           if (doc.exists) {
-            console.log("User database : ", doc.data())
-            locals.username = doc.data() // TODO: this doesn't work, should it be sent from main.js??
+            console.log("[routes/login.js] logged in and retreived user info successfully")
+            res.redirect('/')
           } else {
             console.log("No such document!")
           }
@@ -43,8 +49,7 @@ exports = module.exports = function (req, res) {
           console.log("Error getting document", err)
         })
 
-        console.log("[routes/login.js] logged in successfully")
-        res.redirect('/')
+
       }).catch(function (error) {
         console.log(error.message)
         req.flash('warning', error.message) // send message to client
@@ -53,5 +58,9 @@ exports = module.exports = function (req, res) {
 
   });
 
-  view.render('login', { layout: 'main' });
+  view.on('get', function (next) {
+    view.render('login', { layout: 'main' });
+    next()
+  })
+
 };
