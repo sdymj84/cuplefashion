@@ -5,12 +5,13 @@
   <div class="container">
     <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
 
+      <form enctype="multipart/form-data" name="signUpForm" action='/signup' method='post' style="text-align: center;">
 
-
-
-
-      <form enctype="multipart/form-data" name="signUpForm" action='' method='post' style="text-align: center;"
-        onsubmit="return checkInput()">
+        {{#if messages.warning}}
+        <div class="alert alert-danger flash-message">
+          {{messages.warning}}
+        </div>
+        {{/if}}
 
         <div class="form-group">
           <center>
@@ -48,7 +49,8 @@
         <br>
         <p style="font-size:13px; text-align: center;">already on account?
           <button type="button" onClick="signUp()" class="btn btn-link" id="join" target="self" style="color: #000000;">log
-            in</button></p>
+            in</button>
+        </p>
       </form>
     </div>
   </div>

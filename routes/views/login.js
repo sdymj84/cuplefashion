@@ -1,5 +1,13 @@
 var keystone = require('keystone');
 var firebase = require('firebase');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("../../cuplefashion-c41cf-firebase-adminsdk-ig05s-4054adf3f9.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+var db = admin.firestore();
+
 
 exports = module.exports = function (req, res) {
 
@@ -11,7 +19,7 @@ exports = module.exports = function (req, res) {
   locals.section = 'login';
 
   view.on('post', function (next) {
-    console.log('Login post function executed')
+    console.log('[routes/login.js] Login post function executed')
     const email = req.body.inputEmail;
     const password = req.body.inputPassword;
 
@@ -20,8 +28,22 @@ exports = module.exports = function (req, res) {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (user) {
-        console.log(user)
-        console.log("logged in successfully")
+        const uid = user.user.uid
+        console.log("User UID : " + uid)
+
+        const docRef = db.collection('users').doc(uid)
+        docRef.get().then(doc => {
+          if (doc.exists) {
+            console.log("User database : ", doc.data())
+            locals.username = doc.data() // TODO: this doesn't work, should it be sent from main.js??
+          } else {
+            console.log("No such document!")
+          }
+        }).catch(err => {
+          console.log("Error getting document", err)
+        })
+
+        console.log("[routes/login.js] logged in successfully")
         res.redirect('/')
       }).catch(function (error) {
         console.log(error.message)

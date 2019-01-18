@@ -29,3 +29,6 @@ node_modules
 
 # Ignore .DS_Store files on OS X
 .DS_Store
+
+# Google Cloud Platform private key
+cuplefashion-c41cf-firebase-adminsdk-ig05s-4054adf3f9.json
