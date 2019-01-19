@@ -21,10 +21,6 @@ exports = module.exports = function (req, res) {
   // item in the header navigation.
   locals.section = 'login';
 
-  view.on('init', function (next) {
-    next()
-  })
-
   view.on('post', function (next) {
     console.log('[routes/login.js] Login post function executed')
     const email = req.body.inputEmail;
@@ -44,11 +40,12 @@ exports = module.exports = function (req, res) {
             res.redirect('/')
           } else {
             console.log("No such document!")
+            next()
           }
         }).catch(err => {
           console.log("Error getting document", err)
+          next(err)
         })
-
 
       }).catch(function (error) {
         console.log(error.message)
@@ -58,9 +55,5 @@ exports = module.exports = function (req, res) {
 
   });
 
-  view.on('get', function (next) {
-    view.render('login', { layout: 'main' });
-    next()
-  })
-
+  view.render('login', { layout: 'main' });
 };
