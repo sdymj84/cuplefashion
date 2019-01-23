@@ -12,38 +12,13 @@
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="/styles/uikit/uikit.css" />
   <link href="/styles/site.css" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 </head>
 
 <body>
   {{>nav}}
-  {{!-- // 점보는 첫 메인화면에만 보여야 하고 상품 리스트 페이지에서는
-  안보여야 하는데 /products 페이지를 가면 점보가 보임. 점보를 항상 넣도록
-  되어 있는거 같은데 수정해야 할거 같음.
-
-  그리고 앞으로 파일상에서 TODO / FIXME 표시를 해가지고 이부분 고쳤으면 좋겠다
-  이런거 추가했으면 좋겠다 이런얘기를 좀더 쉽게 하기위해서 TODO 프로그램을
-  깔아서 사용했으면 하거든, 내가 쓰는 vscode 에는 플러그인처럼 쓸수있는게 있는데
-  아톰에는 TODO parsing 하는 프로그램 있으면 찾아서 깔어~
-  그래서 내가 어딘가에 TODO: 또는 FIXME: 를 적고 코맨트를 적으면
-  니가 프로젝트를 열었을때 내가 어디에 적었는지 한눈에 볼수 있고 바로 링크 눌러서 열수
-  있도록 하는거야
-
-  혹시 vscode 깔아서 해볼생각 있으면 vscode 깔고 마켓플레이스에서 플러그인 Todo Tree 라는거
-  깔면됨. 그담에 user settings 에서 밑의 코드 추가하주고.
-
-  "todo-tree.excludeGlobs": [
-  "**/bootstrap/**",
-  "**/jquery/**",
-  "**/uikit/**",
-  ],
-
-  아톰에서 찾아서 할거면 상관없고~
-
-  --}}
   {{{body}}}
   {{>footer}}
-
 
   <script src="/js/jquery/jquery-1.11.3.min.js"></script>
   <script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
@@ -51,25 +26,7 @@
   <script src="/js/uikit/uikit.js"></script>
   <script src="/js/uikit/uikit-icons.js"></script>
   <script src="/js/site/main.js"></script>
-
-
-  {{!-- Firebase auth config --}}
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-    apiKey: "AIzaSyCUWwhrBJeN7rDTUAZ0G2N8dDftJK47Zbo",
-    authDomain: "login-63897.firebaseapp.com",
-    databaseURL: "https://login-63897.firebaseio.com",
-    projectId: "login-63897",
-    storageBucket: "login-63897.appspot.com",
-    messagingSenderId: "986984805875"
-  };
- 
-    firebase.initializeApp(config);
-  </script>
-  {{!-- ================================ --}}
-
 
 </body>
 

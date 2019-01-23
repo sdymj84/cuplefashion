@@ -95,7 +95,7 @@ module.exports = function () {
 		var suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '';
 		var output = '';
 
-		function createTagList (tags) {
+		function createTagList(tags) {
 			var tagNames = _.map(tags, 'name');
 
 			if (autolink) {
@@ -290,6 +290,7 @@ module.exports = function () {
 
 	_helpers.flashMessages = function (messages) {
 		var output = '';
+		console.log("inside helper : " + messages)
 		for (var i = 0; i < messages.length; i++) {
 
 			if (messages[i].title) {
@@ -308,6 +309,7 @@ module.exports = function () {
 				output += '</ul>';
 			}
 		}
+		console.log("inside helper output : " + output)
 		return new hbs.SafeString(output);
 	};
 
@@ -325,6 +327,10 @@ module.exports = function () {
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
 	};
+
+	_helpers.log = function (text) {
+		console.log(text)
+	}
 
 	return _helpers;
 };

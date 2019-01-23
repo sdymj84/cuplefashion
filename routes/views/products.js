@@ -1,4 +1,5 @@
 const keystone = require('keystone')
+var firebase = require('firebase');
 
 exports = module.exports = (req, res) => {
   const view = new keystone.View(req, res)
@@ -14,6 +15,10 @@ exports = module.exports = (req, res) => {
   // locals.products contains data set queried by below line
   view.query('products', keystone.list('Product')
     .model.find().populate('images'))
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) locals.user = user
+  });
 
   // Load products
   view.render('products', { layout: 'main' })
