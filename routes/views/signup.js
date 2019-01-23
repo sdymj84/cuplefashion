@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var firebase = require('firebase');
 
 exports = module.exports = function (req, res) {
 
@@ -7,7 +8,38 @@ exports = module.exports = function (req, res) {
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'sign';
+	locals.section = 'signup';
+
+	view.on('post', function (next) {
+		console.log('[routes/login.js] Signup post function executed')
+		const newUser = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.emailAddress,
+			password1: req.body.password,
+			password2: req.body.password_re,
+		}
+
+		// firebase auth method referred from - 
+		// https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithEmailAndPassword
+		if (newUser.password1 === newUser.password2) {
+			firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password1)
+				.then((user) => {
+					console.log(user.user.uid)
+					console.log("[routes/signup.js] welcome!, joined and logged in successfully")
+					res.redirect('/')
+				}).catch((error) => {
+					console.log(error.message)
+					req.flash('warning', error.message) // send message to client
+					next()
+				})
+		} else {
+			const errMsg = "Password doesn't match each other"
+			console.log(errMsg)
+			req.flash('warning', errMsg)
+			next()
+		}
+	});
 
 	// Render the view
 	view.render('signup', { layout: 'main' });

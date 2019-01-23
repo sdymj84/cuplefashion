@@ -1,6 +1,7 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 var SiteInfo = keystone.list('SiteInfo');
+var firebase = require('firebase');
 
 exports = module.exports = function (req, res) {
 
@@ -15,14 +16,16 @@ exports = module.exports = function (req, res) {
 	locals.enquirySubmitted = false;
 
 	// populate jumbotron image
-	view.on('init', function(next)
-	{		
+	view.on('init', function (next) {
 		var q = SiteInfo.model.find({}).populate('mainImage');
 
-		q.exec(function (err, result)
-		{
+		q.exec(function (err, result) {
 			locals.siteinfo = result;
 			next(err);
+		});
+
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) locals.user = user
 		});
 
 	});
@@ -46,5 +49,5 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('contact', {layout:'main'});
+	view.render('contact', { layout: 'main' });
 };

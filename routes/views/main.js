@@ -1,43 +1,80 @@
 var keystone = require('keystone');
 var SiteInfo = keystone.list('SiteInfo');
 var firebase = require('firebase');
+var admin = require("firebase-admin");
+var db = admin.firestore();
+
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+  var view = new keystone.View(req, res);
+  var locals = res.locals;
 
-	// locals.section is used to set the currently selected
-	// item in the header navigation.
-	locals.section = 'home';
-	
-	view.on('init', function (next) {
+  // locals.section is used to set the currently selected
+  // item in the header navigation.
+  locals.section = 'home';
 
-		var q = SiteInfo.model.find({}).populate('mainImage');
+  view.on('init', function (next) {
+    var q = SiteInfo.model.find({}).populate('mainImage');
 
-		q.exec(function (err, result) {
-			locals.siteinfo = result;
-			next(err);
-		});
-	});
+    q.exec(function (err, result) {
+      locals.siteinfo = result;
+      next(err)
+    });
+  });
 
-	/* TODO:
-    
-		1. hide login and signup from nav, once user login.
-       */
-	
+  view.on('init', function (next) {
+    const user = firebase.auth().currentUser
+    if (user) {
+      console.log("[routes/main.js] Welcome customer! you're currently logged in");
+      locals.user = user
+      const uid = user.uid
+      const docRef = db.collection('users').doc(uid)
+      docRef.get().then(doc => {
+        if (doc.exists) {
+          locals.displayName = doc.data()
+          console.log(doc.data())
+          next()
+        } else {
+          console.log("No such document!")
+          next()
+        }
+      }).catch(err => {
+        console.log("Error getting document", err)
+        next(err)
+      })
+    } else {
+      console.log("[routes/main.js] You're not logged in");
+      next()
+    }
 
-	firebase.auth().onAuthStateChanged(function(user) {
-		if(user)
-		{
-			console.log("login status");
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //   if (user) {
+    //     console.log("[routes/main.js] Welcome customer! you're currently logged in");
+    //     locals.user = user
+    //     const uid = user.uid
+    //     const docRef = db.collection('users').doc(uid)
+    //     docRef.get().then(doc => {
+    //       if (doc.exists) {
+    //         locals.displayName = doc.data()
+    //         console.log(doc.data())
+    //         console.log('3')
+    //         next()
+    //       } else {
+    //         console.log("No such document!")
+    //         next()
+    //       }
+    //     }).catch(err => {
+    //       console.log("Error getting document", err)
+    //       next(err)
+    //     })
+    //   } else {
+    //     console.log("[routes/main.js] You're not logged in");
+    //     next()
+    //   }
+    // });
+  })
 
-		}
-		else{
-			console.log("fail");
-		}
-	});
 
-		
-	// Render the view
-	view.render('main', { layout: 'main' });
+  // Render the view
+  view.render('main', { layout: 'main' });
 };

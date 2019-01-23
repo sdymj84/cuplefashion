@@ -10,35 +10,33 @@
         <span class="icon-bar"></span>
       </button>
 
-      <!--   <img style="max-width:55px; margin-top: -7px;"
-         src="/images/logo.png"> -->
-
-      <a class="navbar-brand" rel="home" href="/"> Cuple
-      </a>
+      <a class="navbar-brand" rel="home" href="/">Cuple</a>
     </div>
 
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <ul class="nav navbar-nav navbar-right">
-        {{!--
-        below code meaning : if (locals.section === 'projects')
-        which means, if user access main.js route
-        which means, if user enters home page
-
-        // :
-        .. but why nav bar changes based on which page user enters?
-        maybe you're planning to change to whether user log in or not?
-        --}}
-        {{!--
-        // :
-        please use readable names that each others can easily understand
-        --}}
         <li><a href="/products">PRODUCTS</a></li>
         <li><a href="/contact">CONTACT</a></li>
-        <li id="hi"><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+        {{#if user}}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCOUNT
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {{#if displayName}}
+            <li><a href="#">{{displayName.firstName}}</a></li>
+            {{/if}}
+            <li><a href="#">SETTINGS</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">LOG OUT</a></li>
+          </ul>
+        </li>
+        {{else}}
+        <li id="hi"><a href="/signup"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> LOG IN</a></li>
+        {{/if}}
+
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>s

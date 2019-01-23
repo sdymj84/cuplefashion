@@ -38,7 +38,8 @@ exports = module.exports = function (app) {
 	app.get('/adminLogin', routes.views.index);
 	app.get('/products', routes.views.products);
 	app.use('/login', routes.views.login);
-	app.get('/signup', routes.views.signup);
+	app.get('/logout', routes.views.logout)
+	app.use('/signup', routes.views.signup);
 
 	/* 
 		Set route for product detail page
