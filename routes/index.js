@@ -40,6 +40,7 @@ exports = module.exports = function (app) {
 	app.use('/login', routes.views.login);
 	app.get('/logout', routes.views.logout)
 	app.use('/signup', routes.views.signup);
+	app.use('/forgotpassword', routes.views.forgotpassword);
 
 	/* 
 		Set route for product detail page

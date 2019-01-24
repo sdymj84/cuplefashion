@@ -1,60 +1,63 @@
 <div class="container">
-  <br><br><br>
-  <h1 class="textstyle">sign into Cuple</h1>
-  <br><br><br>
+    <br><br><br><br><br>
 
-  <form class="form-horizontal" action='/login' method='post' name="loginForm">
-    <input type="hidden" name="token" />
+    <h1 class="textstyle">sign into Cuple</h1>
+    <br><br><br>
+    {{!--
+    // TODO:
 
-    {{#if messages.warning}}
-    <div class="alert alert-danger flash-message">
-      {{messages.warning}}
-    </div>
-    {{/if}}
+    1. Action required in form when user select sign in button.
 
-    <div class="form-group">
-      <label class="label_font control-label hidden-lg hidden-md col-lg-2">email address</label>
-      <div class="col-lg-12">
-        <input class="form-control" type="text" name="inputEmail" id="inputEmail" placeholder="email address">
-      </div>
-    </div>
+    --}}
 
-    <div class="form-group">
-      <label class="label_font control-label hidden-lg hidden-md col-lg-2">password</label>
-      <div class="col-lg-12">
-        <input class="form-control" type="password" name="inputPassword" id="inputPassword" placeholder="password">
-      </div>
-    </div>
 
-    <div class="form-group">
-      <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
-        <center>
-          <button type="submit" class="btn btn-signin btn-block" id="login">sign in</button>
-  </form>
+    <form class="form-horizontal" action='/login' method='post' name="loginForm" onsubmit="return checklogininput()">
+        <input type="hidden" name="token" />
+        <div class="form-group">
+            <label class="label_font control-label hidden-lg hidden-md col-lg-2">email address</label>
+            <div class="col-lg-12">
+                <input class="form-control" type="text" name="inputEmail" id="inputEmail" placeholder="email address">
+            </div>
+        </div>
 
-  <hr style="width: 100%;">
+        <div class="form-group">
+            <label class="label_font control-label hidden-lg hidden-md col-lg-2">password</label>
+            <div class="col-lg-12">
+                <input class="form-control" type="password" name="inputPassword" id="inputPassword" placeholder="password">
+            </div>
+        </div>
 
-  <button type="button" class="btn btn-fbsignin btn-block" onclick="facebookLogin()"><i class="fa fa-facebook fa-fw"></i>sign
-    in with Facebook</button>
+        <div class="form-group">
+            <div class="col-sm-12 col-lg-12 col-xs-12 col-md-12">
+                <center>
+                    <button type="submit" class="btn btn-signin btn-block" id="login">sign in</button>
+    </form>
 
-  <button type="submit" class="btn btn-signin btn-block" id="logout">out</button>
-  </center>
+
+    <button type="button" class="btn btn-fbsignin btn-block" onclick="facebookLogin()"><i class="fa fa-facebook fa-fw"></i>sign
+        in with Facebook</button>
+    </center>
 </div>
 </div>
+
+
+
+
 
 <br><br><br>
 
 <!-- Sign up form -->
 <div class="signUp" style="text-align: center;">
-  <label class="label_font">don't have an account?&nbsp;&nbsp;</label>
-  <button type="button" onClick="signUp()" class="btn" id="join" target="self" style="color: #e69f66; background: none;">sign
-    up</button>
+    <label class="label_font">don't have an account?&nbsp;&nbsp;</label>
+    <a href='/signup' class="btn" id="join" target="self" style="color: #e69f66; background: none;">sign
+        up</a>
 </div>
 <!-- Forgot Password -->
 <div class="forgotPassword" style="text-align: center;">
-  <button type="button" onClick="forgotPassword()" class="btn btn-forgot" id="forgotPassword" target="self" style="color: #e69f66; background: none;">forgot
-    your password?</button>
+    <a href='/forgotpassword' class="btn btn-forgot" id="forgotPassword" style="color: #e69f66; background: none;">forgot
+        your password?</a>
 </div>
-<br><br>
+<br><br><br><br>
+
 
 </div>
