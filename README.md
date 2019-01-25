@@ -7,6 +7,7 @@
 - Keystone (ExpressJS / MongoDB with Mongoose / Handlebars(hbs))
 - CSS / LESS / Bootstrap / UiKIT
 - Git / Github
+- Firebase Auth
 ---
 
 ## App Details
@@ -19,7 +20,7 @@
 ## Job summary of each members
 - Designer (Jihee) :
   1. Design and decide all layout and page templates
-  2. 
+  2. Manage instagram and products
 
 - Developer1 (Minjun) :
   1. Create model/route/view pages for Product
@@ -32,8 +33,11 @@
 
 - Developer2 (Deokguan) :
   1. Create model/route/view pages for Image/SiteInfo
-  2. Navbar, Jumbo in home page
-  3. 
+  2. Navbar and Jumbo in home page
+  3. Footer section
+  4. Login/signup page (Co-work)
+  5. Forgot password with Firebase
+
 ---
 
 ## Steps to Develop
@@ -44,9 +48,11 @@
   - Recommendation : choose your ear type and system will recommend most fit earrings
 ### 2. Front End
 - Create static pages
-  - main page with navbar, footer
+  - main page with navbar, jumbo, and footer
   - products, product detail pages
+  - contact page
   - sign in, sign up pages
+  - Forgot password page
 ### 3. Back End
 - Add login logic
   - Setup Firebase Auth and add logic in each routes
