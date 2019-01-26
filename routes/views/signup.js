@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var firebase = require('firebase');
-var admin = require("firebase-admin");
-var db = admin.firestore();
+// var admin = require("firebase-admin");
+// var db = admin.firestore();
 
 exports = module.exports = function (req, res) {
 
@@ -30,17 +30,7 @@ exports = module.exports = function (req, res) {
 					const uid = user.user.uid
 					console.log("User UID : " + uid)
 
-					const docRef = db.collection('users').doc(uid)
-					docRef.set({
-						firstName: newUser.firstName,
-						lastName: newUser.lastName
-					}).then(doc => {
-						console.log("[routes/signup.js] welcome, " + newUser.firstName + "! you joined and logged in successfully")
-						res.redirect('/')
-					}).catch(err => {
-						console.log("Error setting document", err)
-						next(err)
-					})
+					// TODO(byul) - Store user info to db
 
 				}).catch((error) => {
 					console.log(error.message)
