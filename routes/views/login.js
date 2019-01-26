@@ -1,16 +1,5 @@
 var keystone = require('keystone');
 var firebase = require('firebase');
-var admin = require("firebase-admin");
-
-// Key file for Firestore access which downloaded from Firebase console
-var serviceAccount = require("../../cuplefashion-c41cf-firebase-adminsdk-ig05s-e297cded19.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-admin.firestore().settings({ timestampsInSnapshots: true })
-var db = admin.firestore();
-
 
 exports = module.exports = function (req, res) {
 
@@ -33,7 +22,7 @@ exports = module.exports = function (req, res) {
         const uid = user.user.uid
         console.log("User UID : " + uid)
 
-        const docRef = db.collection('users').doc(uid)
+        /* const docRef = db.collection('users').doc(uid)
         docRef.get().then(doc => {
           if (doc.exists) {
             console.log("[routes/login.js] logged in and retreived user info successfully")
@@ -45,7 +34,7 @@ exports = module.exports = function (req, res) {
         }).catch(err => {
           console.log("Error getting document", err)
           next(err)
-        })
+        }) */
 
       }).catch(function (error) {
         console.log(error.message)
