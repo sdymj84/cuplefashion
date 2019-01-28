@@ -2,15 +2,15 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Customer Model
- * ==========
+ Error occurred when you try to add customer info in admin page.
+
+ FIXME: need to fix.
  */
 var Customer = new keystone.List('Customer');
 
 Customer.add({
 	uid: { type: Types.Key, unique: true },
-	firstName: { type: Types.Name, required: true, index: true },
-	lastName: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	phoneNumber: { type: Types.Text },
 	address: {
