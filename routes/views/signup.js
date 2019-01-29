@@ -1,7 +1,5 @@
 var keystone = require('keystone');
 var firebase = require('firebase');
-// var admin = require("firebase-admin");
-// var db = admin.firestore();
 
 exports = module.exports = function (req, res) {
 
