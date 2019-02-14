@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var firebase = require('firebase');
+const Customer = keystone.list('Customer')
 
 exports = module.exports = function (req, res) {
 
@@ -26,14 +27,22 @@ exports = module.exports = function (req, res) {
 			firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password1)
 				.then((user) => {
 					const uid = user.user.uid
-					console.log("User UID : " + uid)
-
+					const name = newUser.firstName + " " + newUser.lastName
 					// TODO(byul) - Store user info to db
-
+					Customer.model.create({
+						uid: uid,
+						name: newUser.firstName,
+						email: newUser.email,
+					}).then(() => {
+						next()
+					}).catch(err => {
+						console.log("Error while creating customer database after Firebase user is successfully added")
+						next(err)
+					})
 				}).catch((error) => {
 					console.log(error.message)
 					req.flash('warning', error.message) // send message to client
-					next()
+					next(error)
 				})
 		} else {
 			const errMsg = "Password doesn't match each other"

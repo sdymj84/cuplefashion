@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var firebase = require('firebase');
 var Types = keystone.Field.Types;
 
 /**
@@ -23,4 +24,26 @@ Customer.add({
 });
 
 Customer.defaultColumns = "name, email"
+
+// when admin adds customer manually from admin page, 
+// this middleware adds customer from Firebase as well
+Customer.schema.post('save', (doc, next) => {
+	if (!doc.uid) {
+		console.log("New customer is added from admin page - adding from Firebase too")
+		firebase.auth().createUserWithEmailAndPassword(doc.email, "test123")
+			.then((user) => {
+				const uid = user.user.uid
+				Customer.model.updateOne(
+					{ _id: doc._id },
+					{ $set: { uid: uid } }
+				).then(() => next())
+			}).catch((error) => {
+				console.log(error.message)
+				next(error)
+			})
+	} else {
+		next()
+	}
+})
+
 Customer.register();
