@@ -31,7 +31,10 @@ exports = module.exports = function (req, res) {
 					// TODO(byul) - Store user info to db
 					Customer.model.create({
 						uid: uid,
-						name: newUser.firstName,
+						name: {
+							first: newUser.firstName,
+							last: newUser.lastName
+						},
 						email: newUser.email,
 					}).then(() => {
 						next()
@@ -42,7 +45,7 @@ exports = module.exports = function (req, res) {
 				}).catch((error) => {
 					console.log(error.message)
 					req.flash('warning', error.message) // send message to client
-					next(error)
+					next()
 				})
 		} else {
 			const errMsg = "Password doesn't match each other"
