@@ -28,7 +28,6 @@ exports = module.exports = function (req, res) {
 				.then((user) => {
 					const uid = user.user.uid
 					const name = newUser.firstName + " " + newUser.lastName
-					// TODO(byul) - Store user info to db
 					Customer.model.create({
 						uid: uid,
 						name: {

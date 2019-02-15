@@ -3,9 +3,22 @@ var firebase = require('firebase');
 var Types = keystone.Field.Types;
 
 /**
- Error occurred when you try to add customer info in admin page.
+ Issue : Error occurred when you try to add customer info in admin page.
 
- FIXME: need to fix.
+ FIXED (minjun)
+ 
+ cause : when adding customer from admin page, 
+				 it creates customer with name and email but without uid becuase uid is from firebase.
+				 so uid is null at this point
+				 and when adding another customer, this second customer's uid is also null
+				 and now we have two documents which has the same uid value (null)
+				 this is not allowed because uid is the first value
+				 (I don't quite understand but it looks like the first element is automatically assigned as key element)
+ 
+ resolution :	Added middleware which executed right after the customer is created
+							on mongodb. What this middleware does is to create firebase user based on
+							the info admin has just entered and get uid from firebase > update customer in mongodb
+							
  */
 var Customer = new keystone.List('Customer');
 
