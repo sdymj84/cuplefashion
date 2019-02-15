@@ -36,11 +36,12 @@
 
       <form class="uk-form-horizontal uk-margin-large">
 
+        {{!-- Color change --}}
         <div class="uk-margin">
           <div uk-form-custom="target: > * > span:first-child">
             <select class="product-color-select">
               <option value="">Please select color...</option>
-              <option value="black">Black</option>
+              <option value="black" selected>Black</option>
               <option value="navy">Navy</option>
               <option value="darkred">Wine</option>
             </select>
@@ -52,13 +53,15 @@
           <div class="product-color-preview"></div>
         </div>
 
-        {{!-- // TODO (Minjun) - Create qty and buy button --}}
+        {{!-- Qty button --}}
         <div class="uk-margin">
           <label class="uk-form-label" for="form-horizontal-select">Qty</label>
           <div class="uk-margin">
             <input class="uk-input uk-form-width-small" type="number" value=1 min=1 placeholder="1">
           </div>
         </div>
+
+        {{!-- // TODO (Minjun) - Create buy button --}}
 
       </form>
 

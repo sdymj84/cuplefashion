@@ -53,8 +53,10 @@ keystone.set('routes', require('./routes'));
 
 
 // Configure the navigation bar in Keystone's Admin UI
+// property : catetory name
+// value : slug of the models
 keystone.set('nav', {
-	users: 'users',
+	users: ['users', 'customers'],
 	enquiries: 'enquiries',
 	images: 'images',
 	products: 'products',
